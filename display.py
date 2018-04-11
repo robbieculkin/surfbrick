@@ -13,6 +13,19 @@ DATA_WIND_G  = 24
 CLOCK = 17
 SHIFT = 18
 
+#translate each digit to array of length 8 (segs + decimal pt) for YSD-160AR4B-8
+to7seg = {
+    0:[1,0,0,0,1,0,0,0],
+    1:[1,1,1,0,1,0,1,1],
+    2:[0,1,0,0,1,1,0,0],
+    3:[0,1,0,0,1,0,0,1],
+    4:[0,0,1,0,1,0,1,1],
+    5:[0,0,0,1,1,0,0,1],
+    6:[0,0,0,1,1,0,0,0],
+    7:[1,1,0,0,1,0,1,1],
+    8:[0,0,0,0,1,0,0,0],
+    9:[0,0,0,0,1,0,1,1]}
+
 while(1):
     #get info from get_data.py
     data = data()
@@ -27,19 +40,6 @@ while(1):
     wind_k1 = int(data['wind']['kts']/10)
     wind_g0 = int(round(data['wind']['gust']%10))
     wind_g1 = int(data['wind']['gust']/10)
-
-    #translate each digit to array of length 8 (segs + decimal pt) for YSD-160AR4B-8
-    to7seg = {
-        0:[1,0,0,0,1,0,0,0],
-        1:[1,1,1,0,1,0,1,1],
-        2:[0,1,0,0,1,1,0,0],
-        3:[0,1,0,0,1,0,0,1],
-        4:[0,0,1,0,1,0,1,1],
-        5:[0,0,0,1,1,0,0,1],
-        6:[0,0,0,1,1,0,0,0],
-        7:[1,1,0,0,1,0,1,1],
-        8:[0,0,0,0,1,0,0,0],
-        9:[0,0,0,0,1,0,1,1]}
 
     #pair digits back up for sr
     swell_h = to7seg[swell_h0] + to7seg[swell_h1]
