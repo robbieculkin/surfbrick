@@ -13,6 +13,13 @@ DATA_WIND_G  = 24
 CLOCK = 17
 SHIFT = 18
 
+IO.setup(DATA_SWELL_H, IO.OUT)
+IO.setup(DATA_SWELL_P, IO.OUT)
+IO.setup(DATA_WIND_K, IO.OUT)
+IO.setup(DATA_WIND_G, IO.OUT)
+IO.setup(CLOCK, IO.OUT)
+IO.setup(SHIFT, IO.OUT)
+
 #translate each digit to array of length 8 (segs + decimal pt) for YSD-160AR4B-8
 to7seg = {
     0:[1,0,0,0,1,0,0,0],
