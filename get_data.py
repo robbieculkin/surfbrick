@@ -5,7 +5,6 @@ def data():
 
     KNOTS = 0.868976 # number of knots in 1 mph
 
-    #wunderground key: 5f4f6000c4fcf3e7 ---- 500 api calls per day limit: update every 30 mins
     wunderground = requests.get('http://api.wunderground.com/api/5f4f6000c4fcf3e7/conditions/q/CA/San_Diego.json')
     magic_seaweed = requests.get('http://magicseaweed.com/api/94276ac2ca30f6a1e28acaf7c15ea0dc/forecast/?spot_id=663&units=us')
 
